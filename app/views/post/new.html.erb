@@ -1,0 +1,13 @@
+<h1>post new</h1>
+  <%= form_for :post, url: post_index_path do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+
+    <%= f.label :subreddit %>
+    <%= f.text_area :subreddit %>
+    
+    <%= f.submit %>
+  <% end %>

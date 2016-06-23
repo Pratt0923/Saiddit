@@ -1,0 +1,12 @@
+<h1><%= "#{@subreddit.first.name}" %></h1>
+
+<% @subreddit.each do |reddit| %>
+<% reddit.posts.each do |post| %>
+  <% unless post.title == nil || post.content == nil %>
+    <strong>Title:</strong>
+    <%= post.title %>
+    <strong>Content:</strong>
+    <%= post.content %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>subreddit index</h1>
+<%= form_for :subreddit, url: subreddit_index_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Search the Subreddits!'%>
+<% end %>
