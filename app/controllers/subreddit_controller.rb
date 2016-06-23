@@ -1,8 +1,9 @@
 class SubredditController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!
 
   def index
     @subreddit = Subreddit.all
+    authorize @subreddit
   end
 
   def new
@@ -15,8 +16,9 @@ class SubredditController < ApplicationController
   def create
     if Subreddit.where(name: params[:subreddit][:name]) != []
       @subreddit = Subreddit.where(name: params[:subreddit][:name])
+      authorize @subreddit
     else
-      flash[:success] = "That Saiddit does not exist!"
+      flash[:danger] = "That Saiddit does not exist!"
       #do something other then this. I just wanted to make sure it works :P
       redirect_to subreddit_index_path
     end

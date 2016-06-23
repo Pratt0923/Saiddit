@@ -1,11 +1,13 @@
 class PostController < ApplicationController
-  before_action :authenticate_user!
+
   def index
     @posts = current_user.posts
+    authorize @posts
   end
 
   def new
     @posts = current_user.posts.new
+    authorize @posts
   end
 
   def show
@@ -15,28 +17,32 @@ class PostController < ApplicationController
   def create
     @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method)
     @post.user_id = current_user.id
+    authorize @post
     @post.save!
     redirect_to post_index_path
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
     redirect_to post_index_path
   end
 
   def edit
-    @post = current_user.posts.find params[:id]
+    @post = Post.find params[:id]
+    authorize @post
   end
 
   def update
-    @post = current_user.posts.find params[:id]
+    @post = Post.find params[:id]
+    authorize @post
     if Subreddit.where(name: params[:post][:subreddit]) == []
-      flash[:notice] = "that is not a valid subreddit"
+      flash[:danger] = "That is not a valid Saiddit"
       redirect_to :back
     else
       if @post.update posts_params
-        flash[:notice] = "Item updated!"
+        flash[:notice] = "Post updated!"
         redirect_to post_index_path
       else
         render :edit

@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps null: false
       t.integer :subreddit_id
+      t.string :rank, default: "general_user"
+      t.string :board_control, default: "no_board"
 
     end
 

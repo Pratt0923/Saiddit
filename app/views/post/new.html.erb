@@ -1,5 +1,5 @@
 <h1>post new</h1>
-  <%= form_for :post, url: post_index_path do |f| %>
+  <%= form_for :admin, url: admin_index_path do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
 
@@ -8,6 +8,6 @@
 
     <%= f.label :subreddit %>
     <%= f.text_area :subreddit %>
-    
+
     <%= f.submit %>
   <% end %>
