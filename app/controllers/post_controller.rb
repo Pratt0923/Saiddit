@@ -1,7 +1,7 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def new
@@ -13,10 +13,10 @@ class PostController < ApplicationController
   end
 
   def create
-      @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content])
-      @post.user_id = current_user.id
-      @post.save!
-      redirect_to post_index_path
+    @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method)
+    @post.user_id = current_user.id
+    @post.save!
+    redirect_to post_index_path
   end
 
   def destroy
@@ -45,12 +45,10 @@ class PostController < ApplicationController
   end
 
   def posts_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :subreddit_id)
   end
-#posts will belong to a subreddit. a subreddit with have many users. a comment will belong to a post.
-#users will favorite subreddits(subreddit_id)
-#each post will have a subreddit id attached to it
-#when they favorite subreddits it will record the subreddit id
-#their index page will be all of the subreddits that they have favorited.
 
+  def subreddit_id_method
+    (Subreddit.where(name: params[:post][:subreddit])).first.id
+  end
 end
