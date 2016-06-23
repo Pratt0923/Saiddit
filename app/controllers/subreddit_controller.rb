@@ -16,8 +16,9 @@ class SubredditController < ApplicationController
     if Subreddit.where(name: params[:subreddit][:name]) != []
       @subreddit = Subreddit.where(name: params[:subreddit][:name])
     else
+      flash[:success] = "That Saiddit does not exist!"
       #do something other then this. I just wanted to make sure it works :P
-      redirect_to post_index_path
+      redirect_to subreddit_index_path
     end
   end
 end

@@ -31,11 +31,16 @@ class PostController < ApplicationController
 
   def update
     @post = current_user.posts.find params[:id]
-    if @post.update posts_params
-      flash[:notice] = "Item updated!"
-      redirect_to post_index_path
+    if Subreddit.where(name: params[:post][:subreddit]) == []
+      flash[:notice] = "that is not a valid subreddit"
+      redirect_to :back
     else
-      render :edit
+      if @post.update posts_params
+        flash[:notice] = "Item updated!"
+        redirect_to post_index_path
+      else
+        render :edit
+      end
     end
   end
 
@@ -45,7 +50,7 @@ class PostController < ApplicationController
   end
 
   def posts_params
-    params.require(:post).permit(:title, :content, :subreddit_id)
+    params.require(:post).permit(:title, :content, :subreddit_name)
   end
 
   def subreddit_id_method

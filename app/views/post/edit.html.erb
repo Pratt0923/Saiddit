@@ -1,10 +1,13 @@
 <h1>edit post</h1>
-<%= form_for :post, url: post_index_path do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_area :title %>
 
-  <%= f.label :content %><br>
+  <%= f.label :content %>
   <%= f.text_area :content %>
+
+  <%= f.label :subreddit %>
+  <%= f.text_area :subreddit, value: @post.subreddit.name %>
 
   <%= f.submit %>
 <% end %>
