@@ -1,7 +1,7 @@
 <h1>Your posts</h1>
 <% #all of current users subreddits will be shown here everntually %>
 <%= link_to 'New Post', new_post_path %>
-
+<% #need to sort posts by get_upvotes.size! %>
   <% @posts.each do |post| %><br>
     <div><%= post.title %></div>
     <div><%= post.content %></div>
@@ -17,7 +17,7 @@
 
     <%= link_to "upvote", upvote_path, method: :put %>
     <%= link_to "downvote", downvote_path, method: :put %>
-    <div><%=# @post.get_upvotes.size %></div>
-    <div><%=# @post.get_upvotes.size %></div>
+    <div><%= post.get_upvotes.size %></div>
+    <div><%= post.get_downvotes.size %></div>
 
   <% end %>

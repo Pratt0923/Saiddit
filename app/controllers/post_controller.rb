@@ -56,6 +56,12 @@ class PostController < ApplicationController
     redirect_to post_index_path
   end
 
+  def downvote
+    @post = Post.find(1)
+    @post.downvote_by current_user
+    redirect_to post_index_path
+  end
+
     private
   def user_subreddits
     #define a users subreddits here for future use.
