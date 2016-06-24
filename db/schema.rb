@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(version: 20160623212903) do
     t.string   "content"
     t.integer  "subreddit_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "points",       default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subreddits", force: :cascade do |t|
