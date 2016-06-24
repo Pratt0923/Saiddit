@@ -1,7 +1,7 @@
 class CommentController < ApplicationController
-
+#need to change this so it is not hardcoded into post 1 but its difficult.
   def index
-    @post = Post.find(1)
+    @post = Post.find(params[:post_id])
   end
 
   def new
@@ -11,10 +11,10 @@ class CommentController < ApplicationController
     @comment = Comment.new(
     comment: params[:comment][:comment],
     user_id: current_user.id,
-    post_id: 1
+    post_id: params[:post_id]
     )
     @comment.save
-    redirect_to comment_index_path
+    redirect_to post_comment_index_path
   end
 
 end

@@ -7,14 +7,20 @@
     <%= post.title %>
     <div><strong>Content:</strong></div>
     <%= post.content %>
-    <div>There are: <%= post.comments.count %><%= link_to ' Comments', comment_index_path(post) %></div>
+    <div>There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
+
     <% if policy(post).edit? %>
-    <div><%= link_to 'Edit', edit_post_path(post) %></div>
+      <div><%= link_to 'Edit', edit_post_path(post) %></div>
     <% end %>
 
     <% if policy(post).destroy? %>
-    <div><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+      <div><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
     <% end %>
+
+    <%= link_to "upvote", post_upvote_path(post), method: :put %>
+    <%= link_to "downvote", post_downvote_path(post), method: :put %>
+    <div><%= post.get_upvotes.size %></div>
+    <div><%= post.get_downvotes.size %></div>
 
     <% end %>
   <% end %>

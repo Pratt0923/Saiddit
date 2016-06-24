@@ -30,7 +30,7 @@ class PostController < ApplicationController
   end
 
   def edit
-    @post = Post.find params[:id]
+    @post = Post.find(params[:id])
     authorize @post
   end
 
@@ -51,20 +51,20 @@ class PostController < ApplicationController
   end
 
   def upvote
-    @post = Post.find(1)
+    @post = Post.find params[:post_id]
     @post.upvote_by current_user
     redirect_to post_index_path
   end
 
   def downvote
-    @post = Post.find(1)
+    @post = Post.find params[:post_id]
     @post.downvote_by current_user
     redirect_to post_index_path
   end
 
     private
   def user_subreddits
-    #define a users subreddits here for future use.
+    #TODO: define a users subreddits here for future use.
   end
 
   def posts_params

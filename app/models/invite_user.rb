@@ -1,2 +1,2 @@
-class InviteUser < ApplicationRecord
+class InviteUser < Devise::InvitationsController
 end

@@ -1,8 +1,10 @@
 <h1>index comment</h1>
-<div><%= link_to 'Add a new Comment!', new_comment_path %></div>
-
-<div><%= @post.title %></div><br>
+<div><%= link_to 'Add a new Comment!', new_post_comment_path %></div>
+<div><strong>Title:</strong></div>
+<div><%= @post.title %></div>
+<div><strong>Content:</strong></div>
 <div><%= @post.content %></div>
+
 
 <% @post.comments.each do |comments| %>
 <div><%= comments.comment %></div>
