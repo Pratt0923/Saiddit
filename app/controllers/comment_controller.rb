@@ -5,7 +5,6 @@ class CommentController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -18,15 +17,4 @@ class CommentController < ApplicationController
     redirect_to comment_index_path
   end
 
-  def destroy
-  end
-
-  def edit
-  end
-
-  def update
-  end
-private
-  def find_post
-  end
 end

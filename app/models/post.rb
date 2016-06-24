@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   validates_uniqueness_of :title
   validates_presence_of :content
 
+  acts_as_votable
+  
   def subreddit_name
     self.subreddit.name
   end

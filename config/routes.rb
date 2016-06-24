@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :post
+    put "upvote", to: "post#upvote"
+    put "downvote", to: "post#downvote"
   resources :subreddit
   resources :admin
   resources :invite_users

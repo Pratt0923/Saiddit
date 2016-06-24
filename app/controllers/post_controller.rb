@@ -50,6 +50,12 @@ class PostController < ApplicationController
     end
   end
 
+  def upvote
+    @post = Post.find(1)
+    @post.upvote_by current_user
+    redirect_to post_index_path
+  end
+
     private
   def user_subreddits
     #define a users subreddits here for future use.
@@ -62,4 +68,6 @@ class PostController < ApplicationController
   def subreddit_id_method
     (Subreddit.where(name: params[:post][:subreddit])).first.id
   end
+
+
 end
