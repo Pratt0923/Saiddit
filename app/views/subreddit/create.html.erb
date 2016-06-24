@@ -3,19 +3,19 @@
 <% @subreddit.each do |reddit| %>
 <% reddit.posts.each do |post| %>
   <% unless post.title == nil || post.content == nil %>
-    <strong>Title:</strong>
+    <div><strong>Title:</strong></div>
     <%= post.title %>
-    <strong>Content:</strong>
+    <div><strong>Content:</strong></div>
     <%= post.content %>
-
+    <div>There are: <%= post.comments.count %><%= link_to ' Comments', comment_index_path(post) %></div>
     <% if policy(post).edit? %>
-    <%= link_to 'Edit', edit_post_path(post) %>
+    <div><%= link_to 'Edit', edit_post_path(post) %></div>
     <% end %>
 
     <% if policy(post).destroy? %>
-    <%= link_to 'Destroy', post_path(post), :method => :delete %>
+    <div><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
     <% end %>
-    
+
     <% end %>
   <% end %>
 <% end %>
