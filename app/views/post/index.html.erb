@@ -8,7 +8,6 @@
     <div><strong>Content:</strong></div>
     <div><%= post.content %></div>
     <div>There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
-    <%= post.created_at %>
     <% if policy(post).edit? %>
       <div><%= link_to 'Edit', edit_post_path(post) %></div>
     <% end %>
