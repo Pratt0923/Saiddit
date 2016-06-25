@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20160624162646) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,9 +39,9 @@ ActiveRecord::Schema.define(version: 20160624162646) do
     t.string   "invited_by_type"
     t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
-    t.index ["invitation_token"], name: "index_invite_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_invite_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_invite_users_on_invited_by_id"
+    t.index ["invitation_token"], name: "index_invite_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_invite_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_invite_users_on_invited_by_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -86,12 +89,12 @@ ActiveRecord::Schema.define(version: 20160624162646) do
     t.string   "invited_by_type"
     t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "votes", force: :cascade do |t|
@@ -104,8 +107,8 @@ ActiveRecord::Schema.define(version: 20160624162646) do
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
 end
