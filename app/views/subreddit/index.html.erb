@@ -1,5 +1,5 @@
 <h1>Search Saiddits!</h1>
 <%= bootstrap_form_for :subreddit, url: subreddit_index_path do |f| %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, value: "" %>
   <%= f.submit 'Search the Saiddits!'%>
 <% end %>
