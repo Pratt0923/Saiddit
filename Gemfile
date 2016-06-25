@@ -35,10 +35,14 @@ gem 'pundit'
 gem 'devise_invitable'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'quiet_assets'
+gem 'bootstrap_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rspec'
+  gem 'pry-rails'
 end
 
 group :development do

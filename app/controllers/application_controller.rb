@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
      redirect_to root_path
    end
 
+ rescue_from ActiveRecord::RecordInvalid do |e|
+   flash[:danger] = "All fields must be filled!"
+   redirect_to :back
+end
    #devise invitable
 
    def configure_permitted_parameters

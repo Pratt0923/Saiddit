@@ -6,6 +6,7 @@ class PostController < ApplicationController
   end
 
   def new
+    @subreddit = Subreddit.all
     @posts = current_user.posts.new
     authorize @posts
   end

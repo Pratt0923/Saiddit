@@ -1,6 +1,5 @@
-<h1>subreddit index</h1>
-<%= form_for :subreddit, url: subreddit_index_path do |f| %>
-  <%= f.label :name %>
+<h1>Search Saiddits!</h1>
+<%= bootstrap_form_for :subreddit, url: subreddit_index_path do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit 'Search the Subreddits!'%>
+  <%= f.submit 'Search the Saiddits!'%>
 <% end %>

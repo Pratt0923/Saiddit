@@ -1,6 +1,5 @@
 <h1>subreddit show</h1>
-<%= form_for :subreddit, url: subreddit_index_path do |f| %>
-  <%= f.label :name %><br>
+<%= bootstrap_form_for :subreddit, url: subreddit_index_path do |f| %>
   <%= f.text_field :name %>
   <%= f.submit "Search Subreddits!" %>
 

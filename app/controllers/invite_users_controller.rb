@@ -1,6 +1,7 @@
 class InviteUsersController < ApplicationController
 
   def index
+    @subreddit = Subreddit.all
   end
 
   def create

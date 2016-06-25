@@ -1,14 +1,17 @@
 <h1>index invite_users</h1>
-
-<%= form_for :users, url: invite_users_path do |f| %>
-  <%= f.label :email %>
-  <%= f.text_area :email %>
-
-  <%= f.label :rank %>
-  <%= f.text_area :rank %>
-
-  <%= f.label :board_control %>
-  <%= f.text_area :board_control %>
+<div>
+<%= bootstrap_form_for :users, url: invite_users_path do |f| %>
+  <%= f.text_field :email %>
+</div>
+<div>
+  <%= f.radio_button :rank, 'Admin' %> Admin
+  <%= f.radio_button :rank, 'Mod' %> Mod
+</div>
+<div>
+  <% @subreddit.each do |saiddit| %>
+  <%= f.radio_button :board_control, "#{saiddit.name}" %> <%= saiddit.name %>
+  <% end %>
+</div>
 
   <%= f.submit %>
 <% end %>

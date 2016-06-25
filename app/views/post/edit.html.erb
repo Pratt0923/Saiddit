@@ -1,13 +1,10 @@
 <h1>edit post</h1>
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
+<%= bootstrap_form_for @post do |f| %>
   <%= f.text_area :title %>
 
-  <%= f.label :content %>
   <%= f.text_area :content %>
 
-  <%= f.label :subreddit %>
-  <%= f.text_area :subreddit, value: @post.subreddit.name %>
+  <%= f.text_area :saiddit %>
 
   <%= f.submit %>
 <% end %>
