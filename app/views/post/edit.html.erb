@@ -4,7 +4,7 @@
 
   <%= f.text_area :content %>
 
-  <%= f.text_area :saiddit %>
+  <%= f.text_area :subreddit, :value => @post.subreddit.name %>
 
   <%= f.submit %>
 <% end %>

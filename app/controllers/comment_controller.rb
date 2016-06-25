@@ -1,5 +1,4 @@
 class CommentController < ApplicationController
-#need to change this so it is not hardcoded into post 1 but its difficult.
   def index
     @post = Post.find(params[:post_id])
   end
