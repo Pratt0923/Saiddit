@@ -1,14 +1,14 @@
 <h1>Your Posts</h1>
-<% #all of current users subreddits will be shown here everntually %>
 <%= link_to 'New Post', new_post_path %>
-<% #need to sort posts by get_upvotes.size! %>
+<% @posts = @posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
+
   <% @posts.each do |post| %><br>
     <div><strong>Title:</strong></div>
     <div><%= post.title %></div>
     <div><strong>Content:</strong></div>
     <div><%= post.content %></div>
     <div>There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
-
+    <%= post.created_at %>
     <% if policy(post).edit? %>
       <div><%= link_to 'Edit', edit_post_path(post) %></div>
     <% end %>
