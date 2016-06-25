@@ -14,3 +14,17 @@
  *= require rails_bootstrap_forms
  *= require_self
  */
+
+
+body {
+  background-color: #ffffe6;
+}
+
+
+.well.sidebar-nav {
+  background-color: #e6e6ff;
+}
+
+.navbar {
+  background-color: #e6e6ff;
+}
