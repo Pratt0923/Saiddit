@@ -109,3 +109,14 @@ h1 {
   margin-left: 1em;
   margin-top: -2em;
 }
+
+.saiddit-board {
+  font-family: 'Roboto Condensed', sans-serif;
+  float:left;
+  margin-top: -10em;
+  margin-left: -40px;
+}
+
+.top-margin {
+  margin-top: 6em;
+}
