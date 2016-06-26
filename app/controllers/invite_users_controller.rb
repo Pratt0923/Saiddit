@@ -5,6 +5,7 @@ class InviteUsersController < ApplicationController
   end
 
   def create
+    raise
     User.invite!(
     :email => params[:users][:email],
     :rank => params[:users][:rank],
