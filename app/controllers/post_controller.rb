@@ -18,6 +18,7 @@ class PostController < ApplicationController
   def create
     @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method)
     @post.user_id = current_user.id
+    @post.posted_by = current_user.email
     authorize @post
     @post.save!
     redirect_to post_index_path

@@ -30,6 +30,7 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'twitter-bootstrap-rails'
+gem 'sqlite3'
 
 gem 'pundit'
 gem 'devise_invitable'

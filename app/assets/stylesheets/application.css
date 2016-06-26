@@ -74,3 +74,8 @@ h1 {
   float: left;
   margin-left: 1em;
 }
+
+.votes {
+  margin-left: -65em;
+  margin-top: -2.5em;
+}
