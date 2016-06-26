@@ -10,8 +10,8 @@
   <%= f.radio_button :rank, 'Mod' %> Mod
 </div>
 <div>
-  <% @subreddit.each do |saiddit| %>
   <%= f.label :board_control %>
+  <% @subreddit.each do |saiddit| %>
   <%= f.radio_button :board_control, "#{saiddit.name}" %> <%= saiddit.name %>
   <% end %>
 </div>

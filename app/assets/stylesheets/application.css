@@ -30,7 +30,11 @@ h1 {
   font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
 }
-p {
+.post-title p {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.post-content p {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -40,6 +44,7 @@ p {
 }
 
 .post-title {
+  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
   margin-bottom: 5px;
   border-radius: 1em;
@@ -49,6 +54,7 @@ p {
 }
 
 .post-content {
+  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
   margin-bottom: 5px;
   border-radius: 1em;
