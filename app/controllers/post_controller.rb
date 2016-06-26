@@ -69,7 +69,7 @@ class PostController < ApplicationController
   end
 
   def posts_params
-    params.require(:post).permit(:title, :content, :subreddit_name)
+    params.require(:post).permit(:title, :content, :subreddit_name, :posted_by)
   end
 
   def subreddit_id_method

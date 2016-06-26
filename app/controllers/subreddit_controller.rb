@@ -17,7 +17,6 @@ class SubredditController < ApplicationController
     if Subreddit.where(name: params[:subreddit][:name]) != []
       @subreddit = Subreddit.where(name: params[:subreddit][:name])
       authorize @subreddit
-      raise
     else
       flash[:danger] = "That Saiddit does not exist!"
       #do something other then this. I just wanted to make sure it works :P
