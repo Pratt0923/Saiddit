@@ -30,7 +30,7 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 gem 'twitter-bootstrap-rails'
 gem 'sqlite3'
-
+gem 'pg'
 gem 'pundit'
 gem 'devise_invitable'
 gem 'acts_as_votable', '~> 0.10.0'
@@ -55,7 +55,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
-  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
