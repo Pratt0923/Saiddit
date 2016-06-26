@@ -17,25 +17,29 @@
 
 
 body {
-  font-family: 'Oswald', sans-serif;
 
   background-color: #ffffe6;
 }
 
 h1 {
+  font-family: 'Oswald', sans-serif;
   text-align: center;
 }
 
 .well.sidebar-nav {
+  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
+}
+p {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .navbar {
+  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
 }
 
 .post-title {
-  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
   margin-bottom: 5px;
   border-radius: 1em;
@@ -45,7 +49,6 @@ h1 {
 }
 
 .post-content {
-  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
   margin-bottom: 5px;
   border-radius: 1em;
@@ -55,27 +58,32 @@ h1 {
   }
 
 .post-data {
+  font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
   margin-bottom: 2em;
   border-radius: 1em;
 }
 
 .edit {
+  font-family: 'Oswald', sans-serif;
   float: right;
   margin-right: 1em;
 }
 
 .destroy {
+  font-family: 'Oswald', sans-serif;
   float: right;
   margin-right: 1em;
 }
 
 .comments {
+  font-family: 'Oswald', sans-serif;
   float: left;
   margin-left: 1em;
 }
 
 .votes {
+  font-family: 'Oswald', sans-serif;
   margin-left: -65em;
   margin-top: -2.5em;
 }

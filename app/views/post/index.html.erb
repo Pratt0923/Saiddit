@@ -4,7 +4,7 @@
   <% @posts.each do |post| %><br>
   <div class="post-title">
     <div><strong>Title:</strong></div>
-    <div><%= post.title %></div>
+    <div><p><%= post.title %></p></div>
     <div class="votes">
       <div><%= link_to "▲", post_upvote_path(post), method: :put %>
       <%= link_to "▼", post_downvote_path(post), method: :put %></div>
@@ -14,7 +14,7 @@
   </div>
   <div class="post-content">
     <div><strong>Content:</strong></div>
-    <div><%= post.content %></div>
+    <div><p><%= post.content %></p></div>
   </div>
   <div class="post-data">
     <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
