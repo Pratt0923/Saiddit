@@ -1,6 +1,5 @@
 <h1>Your Posts</h1>
 <% @posts = @posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
-
   <% @posts.each do |post| %><br>
   <div class="post-title">
     <div><strong>Title:</strong></div>
