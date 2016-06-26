@@ -1,26 +1,33 @@
 <h1><%= "#{@subreddit.first.name}" %></h1>
 
 <% @subreddit.each do |reddit| %>
+<% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
 <% reddit.posts.each do |post| %>
   <% unless post.title == nil || post.content == nil %>
+  <div class="post-title">
     <div><strong>Title:</strong></div>
-    <%= post.title %>
+    <div><%= post.title %></div>
+  </div>
+  <div class="post-content">
     <div><strong>Content:</strong></div>
-    <%= post.content %>
-    <div>There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
-
+    <div><%= post.content %></div>
+  </div>
+  <div class="post-data">
+    <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
     <% if policy(post).edit? %>
-      <div><%= link_to 'Edit', edit_post_path(post) %></div>
+      <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
     <% end %>
 
     <% if policy(post).destroy? %>
-      <div><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+      <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
     <% end %>
-
-    <%= link_to "upvote", post_upvote_path(post), method: :put %>
-    <%= link_to "downvote", post_downvote_path(post), method: :put %>
-    <div><%= post.get_upvotes.size %></div>
-    <div><%= post.get_downvotes.size %></div>
+  <div>
+    <%= link_to "▲", post_upvote_path(post), method: :put %>
+    <%= link_to "▼", post_downvote_path(post), method: :put %>
+    <%= post.get_upvotes.size %>
+    <%= post.get_downvotes.size %>
+  </div>
+  </div>
 
     <% end %>
   <% end %>
