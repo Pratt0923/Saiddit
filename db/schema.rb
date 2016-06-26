@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160624162646) do
     t.string   "comment"
     t.integer  "user_id"
     t.integer  "post_id"
+    t.string   "posted_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

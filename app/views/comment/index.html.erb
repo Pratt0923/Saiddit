@@ -1,12 +1,19 @@
-<h1>index comment</h1>
 <div><%= link_to 'Add a new Comment!', new_post_comment_path %></div>
+<div class="post-title">
 <div><strong>Title:</strong></div>
-<div><%= @post.title %></div>
+<div><p><%= @post.title %></p></div>
+</div>
+<div class="post-content">
 <div><strong>Content:</strong></div>
-<div><%= @post.content %></div>
+<div><p><%= @post.content %></p></div>
+</div>
 
 
 <% @post.comments.each do |comments| %>
-<div><%= comments.comment %></div>
+<div class="post-comments">
+<div><p><%= comments.comment %></p></div>
+<div class="comments-posted-by">Posted by: <%= @post.posted_by %></div>
+
+</div>
 
 <% end %>

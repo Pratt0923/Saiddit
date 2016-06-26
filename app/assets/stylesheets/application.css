@@ -38,6 +38,16 @@ h1 {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.post-comments {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #f5f2fe;
+  margin-bottom: 5px;
+  border-radius: 1em;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;}
+
+
 .navbar {
   font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
@@ -66,7 +76,7 @@ h1 {
 .post-data {
   font-family: 'Oswald', sans-serif;
   background-color: #e6e6ff;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
   border-radius: 1em;
 }
 
@@ -92,4 +102,10 @@ h1 {
   font-family: 'Oswald', sans-serif;
   margin-left: -65em;
   margin-top: -2.5em;
+}
+
+.comments-posted-by {
+  float: left;
+  margin-left: 1em;
+  margin-top: -2em;
 }
