@@ -1,13 +1,13 @@
 <h1>What's on your mind?</h1>
-  <%= bootstrap_form_for :post, url: post_index_path do |f| %>
-    <%= f.text_field :title %>
+<%= bootstrap_form_for :post, url: post_index_path do |f| %>
+<%= f.text_field :title %>
 
-    <%= f.text_area :content %>
+<%= f.text_area :content %>
 
-    <% @subreddit.each do |saiddit| %>
-    <%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
-    <% end %>
+<% @subreddit.each do |saiddit| %>
+<%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
+<% end %>
 
 
-    <%= f.submit %>
-  <% end %>
+<%= f.submit %>
+<% end %>

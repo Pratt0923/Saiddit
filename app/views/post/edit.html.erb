@@ -1,10 +1,10 @@
 <h1>edit post</h1>
 <%= bootstrap_form_for @post do |f| %>
-  <%= f.text_area :title %>
+<%= f.text_area :title %>
 
-  <%= f.text_area :content %>
+<%= f.text_area :content %>
 
-  <%= f.text_area :subreddit, :value => @post.subreddit.name %>
+<%= f.text_area :subreddit, :value => @post.subreddit.name %>
 
-  <%= f.submit %>
+<%= f.submit %>
 <% end %>

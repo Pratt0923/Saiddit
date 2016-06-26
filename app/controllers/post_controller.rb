@@ -64,7 +64,7 @@ class PostController < ApplicationController
     redirect_to post_index_path
   end
 
-    private
+  private
   def user_subreddits
     #TODO: define a users subreddits here for future use.
   end
