@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :post do
     resources :comment
-    put "upvote", to: "post#upvote"
-    put "downvote", to: "post#downvote"
+    put :upvote
+    put :downvote
   end
   resources :subreddit
   resources :admin
