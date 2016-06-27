@@ -6,13 +6,6 @@ class SubredditController < ApplicationController
     authorize @subreddit
   end
 
-  def new
-
-  end
-
-  def show
-  end
-
   def create
     if Subreddit.where(name: params[:subreddit][:name].downcase) != []
       @subreddit = Subreddit.where(name: params[:subreddit][:name].downcase)

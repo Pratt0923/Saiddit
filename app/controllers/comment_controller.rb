@@ -1,9 +1,8 @@
 class CommentController < ApplicationController
+
+  #TODO what if I want users to comment on others comments!!!!!
   def index
     @post = Post.find(params[:post_id])
-  end
-
-  def new
   end
 
   def create

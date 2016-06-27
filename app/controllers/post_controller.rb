@@ -25,31 +25,21 @@ class PostController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    find_post
     authorize @post
     @post.destroy
     redirect_to post_index_path
   end
 
   def edit
-    @post = Post.find(params[:id])
+    find_post
     authorize @post
   end
 
   def update
-    @post = Post.find params[:id]
+    find_post
     authorize @post
-    if Subreddit.where(name: params[:post][:subreddit]) == []
-      flash[:danger] = "That is not a valid Saiddit"
-      redirect_to :back
-    else
-      if @post.update posts_params
-        flash[:notice] = "Post updated!"
-        redirect_to post_index_path
-      else
-        render :edit
-      end
-    end
+    subreddit_update
   end
 
   def upvote
@@ -75,5 +65,23 @@ class PostController < ApplicationController
 
   def subreddit_id_method
     (Subreddit.where(name: params[:post][:subreddit])).first.id
+  end
+
+  def find_post
+    @post = Post.find params[:id]
+  end
+
+  def subreddit_update
+    if Subreddit.where(name: params[:post][:subreddit]) == []
+      flash[:danger] = "That is not a valid Saiddit"
+      redirect_to :back
+    else
+      if @post.update posts_params
+        flash[:notice] = "Post updated!"
+        redirect_to post_index_path
+      else
+        render :edit
+      end
+    end
   end
 end
