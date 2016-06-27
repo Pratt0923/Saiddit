@@ -64,7 +64,7 @@ class PostController < ApplicationController
   end
 
   def subreddit_id_method
-    (Subreddit.where(name: params[:post][:subreddit])).first.id
+    (Subreddit.where(id: params[:post][:name])).first.id
   end
 
   def find_post
@@ -72,7 +72,7 @@ class PostController < ApplicationController
   end
 
   def subreddit_update
-    if Subreddit.where(name: params[:post][:subreddit]) == []
+    if Subreddit.where(id: params[:post][:name]) == []
       flash[:danger] = "That is not a valid Saiddit"
       redirect_to :back
     else
