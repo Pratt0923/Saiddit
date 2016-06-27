@@ -4,9 +4,8 @@
 
 <%= f.text_area :content %>
 
-<% @subreddit.each do |saiddit| %>
-<%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
-<% end %>
+<%= f.collection_select(:name, Subreddit.all, :id, :name) %>
+
 
 
 <%= f.submit %>
