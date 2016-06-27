@@ -29,7 +29,6 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'twitter-bootstrap-rails'
-gem 'sqlite3'
 gem 'pg'
 gem 'pundit'
 gem 'devise_invitable'
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rspec'
   gem 'pry-rails'
+  gem 'sqlite3'
 end
 
 group :development do
