@@ -11,7 +11,7 @@ $(document).ready(function() {
     $.ajax("/post/" + findPostId + "/upvote.json", {
           method: "PUT",
           success: function(data) {
-            alert(data.message)
+            //I need to update it here but it wont' do it :(
           },
           error: function() { alert("Something went wrong!") }
 });
@@ -31,8 +31,8 @@ $(document).ready(function() {
     $.ajax("/post/" + findPostId + "/downvote.json", {
           method: "PUT",
           success: function(data) {
-            alert(data.message)
-          },
+            //I need to update it here but it wont' do it :(
+        },
           error: function() { alert("Something went wrong!") }
         });
 

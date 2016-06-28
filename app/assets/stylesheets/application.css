@@ -136,3 +136,9 @@ h1 {
 .downvotessize {
   margin-left: 4px;
 }
+
+.voteButtons {
+  float: left;
+  margin-left: -3.5em;
+  margin-top: -3em;
+}

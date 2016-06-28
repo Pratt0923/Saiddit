@@ -1,16 +1,16 @@
 <div class="post-title">
   <div><strong>Title:</strong></div>
   <div><p><%= post.title %></p></div>
-  <span class="voteButtons">
+<div class="voteButtons">
     <span class="upvote"><span class="buttonUp glyphicon glyphicon-chevron-up"></span>
       <p hidden class="id-of-post"><%= post.id %></p></span>
     <span class="downvote"><span class="buttonDown glyphicon glyphicon-chevron-down"></span>
-    <p hidden class="id-of-post"><%= post.id %></p></span></span>
-    <div>
+    <p hidden class="id-of-post"><%= post.id %></p></span>
+<div>
       <span class="upvotessize"><%= post.get_upvotes.size %></span>
         <span class="downvotessize"><%= post.get_downvotes.size %></span>
-    </div>
-
+</div>
+</div>
     </div>
     <div class="post-content">
       <div><strong>Content:</strong></div>
@@ -29,6 +29,3 @@
       <div>
       </div>
     </div>
-
-
-<% link_to "▲", post_upvote_path(post), method: :put %>
