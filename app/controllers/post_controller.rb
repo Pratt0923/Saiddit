@@ -57,7 +57,7 @@ class PostController < ApplicationController
     @post.upvote_by current_user
     respond_to do |format|
       format.html { redirect_to :back, notice: "done!" }
-      format.json { render json: { status: :ok, message: @post.get_upvotes.size - @post.get_downvotes.size } }
+      format.json { render json: { status: :ok, message: score } }
     end
   end
 
@@ -66,11 +66,16 @@ class PostController < ApplicationController
     @post.downvote_by current_user
     respond_to do |format|
       format.html { redirect_to :back, notice: "done!" }
-      format.json { render json: { status: :ok, message: @post.get_upvotes.size - @post.get_downvotes.size } }
+      format.json { render json: { status: :ok, message: score } }
     end
   end
 
   private
+
+  def score
+    @post.get_upvotes.size - @post.get_downvotes.size
+  end
+
   def user_subreddits
     #TODO: define a users subreddits here for future use.
   end
