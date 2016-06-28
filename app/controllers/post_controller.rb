@@ -55,13 +55,19 @@ class PostController < ApplicationController
   def upvote
     @post = Post.find params[:post_id]
     @post.upvote_by current_user
-    redirect_to post_index_path
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "done!" }
+      format.json { render json: { status: :ok, message: @post.get_upvotes.size } }
+    end
   end
 
   def downvote
     @post = Post.find params[:post_id]
     @post.downvote_by current_user
-    redirect_to post_index_path
+    respond_to do |format|
+      format.html { redirect_to :back, notice: "done!" }
+      format.json { render json: { status: :ok, message: @post.get_downvotes.size } }
+    end
   end
 
   private
