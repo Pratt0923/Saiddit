@@ -4,11 +4,4 @@ class Post < ApplicationRecord
   belongs_to :user
   validates_presence_of :content, :title
   acts_as_votable
-
-  def subreddit_name
-    self.subreddit.name
-  end
-
-  def subreddit_name=(x)
-  end
 end

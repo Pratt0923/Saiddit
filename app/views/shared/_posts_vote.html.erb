@@ -1,17 +1,18 @@
 <div class="post-title">
   <div><strong>Title:</strong></div>
   <div><p><%= post.title %></p></div>
-<div class="voteButtons">
+  <span class="voteButtons">
     <span class="upvote"><span class="buttonUp glyphicon glyphicon-chevron-up"></span>
       <p hidden class="id-of-post"><%= post.id %></p></span>
     <span class="downvote"><span class="buttonDown glyphicon glyphicon-chevron-down"></span>
     <p hidden class="id-of-post"><%= post.id %></p></span>
-<div>
+    <div>
       <span class="upvotessize"><%= post.get_upvotes.size %></span>
         <span class="downvotessize"><%= post.get_downvotes.size %></span>
-</div>
-</div>
     </div>
+
+    </div>
+    </span>
     <div class="post-content">
       <div><strong>Content:</strong></div>
       <div><p><%= post.content %></p></div>

@@ -57,7 +57,7 @@ class PostController < ApplicationController
     @post.upvote_by current_user
     respond_to do |format|
       format.html { redirect_to :back, notice: "done!" }
-      format.json { render json: { status: :ok, message: @post.get_upvotes.size } }
+      format.json { render json: { status: :ok, message: @post.get_upvotes.size - @post.get_downvotes.size } }
     end
   end
 
@@ -66,7 +66,7 @@ class PostController < ApplicationController
     @post.downvote_by current_user
     respond_to do |format|
       format.html { redirect_to :back, notice: "done!" }
-      format.json { render json: { status: :ok, message: @post.get_downvotes.size } }
+      format.json { render json: { status: :ok, message: @post.get_upvotes.size - @post.get_downvotes.size } }
     end
   end
 
