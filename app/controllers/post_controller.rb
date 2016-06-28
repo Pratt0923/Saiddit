@@ -56,7 +56,7 @@ class PostController < ApplicationController
 
   private
   def user_subreddits
-    #TODO: define a users subreddits here for future use.
+    #TODO: define a users favorite subreddits here for future use.
   end
 
   def posts_params

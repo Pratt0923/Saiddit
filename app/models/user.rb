@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments, through: :posts
   has_many :posts
-  has_many :subreddits
 end
