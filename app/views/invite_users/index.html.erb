@@ -11,10 +11,10 @@
 </div>
 
 <div class="form-group">
-<%= f.label :board_control %>
-<% @subreddit.each do |saiddit| %>
-<%= f.select :board_control, "#{saiddit.name}" %> <%= saiddit.name %>
-<% end %>
+  <%= f.label :board_control %>
+  <% @subreddit.each do |saiddit| %>
+  <%= f.select :board_control, "#{saiddit.name}" %> <%= saiddit.name %>
+  <% end %>
 </div>
 
 <%= f.submit %>

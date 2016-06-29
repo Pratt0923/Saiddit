@@ -1,18 +1,18 @@
 <h1>Search Saiddits!</h1>
 <%= bootstrap_form_for :subreddit, url: subreddit_index_path do |f| %>
-  <%= f.text_field :name, value: "" %>
-  <%= f.submit 'Search the Saiddits!'%>
+<%= f.text_field :name, value: "" %>
+<%= f.submit 'Search the Saiddits!'%>
 <% end %>
 <div class="top-margin">
-<% @subreddit.each do |reddit| %>
-<% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
-<% reddit.posts.each do |post| %>
+  <% @subreddit.each do |reddit| %>
+  <% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
+  <% reddit.posts.each do |post| %>
   <% unless post.title == nil || post.content == nil %>
   <%= render partial: "/shared/posts_vote", locals: { post: post } %>
   <div class="saiddit-board">
     <%= reddit.name %>
   </div>
-    <% end %>
   <% end %>
-<% end %>
+  <% end %>
+  <% end %>
 </div>

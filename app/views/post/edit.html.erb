@@ -6,7 +6,7 @@
 
 <% Subreddit.all.each do |saiddit| %>
 <label class="radio-inline">
-<%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
+  <%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
 </label>
 
 <% end %>

@@ -3,31 +3,31 @@
   <div><p><%= post.title %></p></div>
   <span class="voteButtons">
     <span class="upvote"><span class="buttonUp glyphicon glyphicon-chevron-up"></span>
-      <p hidden class="id-of-post"><%= post.id %></p></span>
+    <p hidden class="id-of-post"><%= post.id %></p></span>
     <span class="downvote"><span class="buttonDown glyphicon glyphicon-chevron-down"></span>
     <p hidden class="id-of-post"><%= post.id %></p></span>
     <div>
       <span class="upvotessize"><%= post.get_upvotes.size %></span>
-        <span class="downvotessize"><%= post.get_downvotes.size %></span>
-        <p class="total-votes-size"></p>
+      <span class="downvotessize"><%= post.get_downvotes.size %></span>
+      <p class="total-votes-size"></p>
     </div>
 
-    </div>
-    </span>
-    <div class="post-content">
-      <div><strong>Content:</strong></div>
-      <div><p><%= post.content %></p></div>
-    </div>
-    <div class="post-data">
-      <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
-      <div class="comments">Posted by: <%= post.posted_by %></div>
-      <% if policy(post).edit? %>
-      <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
-      <% end %>
+  </div>
+</span>
+<div class="post-content">
+  <div><strong>Content:</strong></div>
+  <div><p><%= post.content %></p></div>
+</div>
+<div class="post-data">
+  <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
+  <div class="comments">Posted by: <%= post.posted_by %></div>
+  <% if policy(post).edit? %>
+  <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
+  <% end %>
 
-      <% if policy(post).destroy? %>
-      <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
-      <% end %>
-      <div>
-      </div>
-    </div>
+  <% if policy(post).destroy? %>
+  <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+  <% end %>
+  <div>
+  </div>
+</div>

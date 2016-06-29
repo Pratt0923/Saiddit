@@ -69,7 +69,7 @@ class PostController < ApplicationController
       format.json { render json: { status: :ok, message: score } }
     end
   end
-
+  
   private
 
   def score
