@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
     redirect_to :back
   end
 
-  #devise invitable
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:invite) do |u|
       u.permit(:email, :rank, :board_control, :password, :password_confirmation,

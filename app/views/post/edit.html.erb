@@ -2,6 +2,8 @@
 <%= bootstrap_form_for @post do |f| %>
 <%= f.text_area :title %>
 <%= f.text_area :content %>
-<%= f.collection_select(:name, Subreddit.all, :name, :name) %>
+<%= f.collection_select(:subreddit, Subreddit.all, :name, :name) %>
+
+
 <%= f.submit %>
 <% end %>

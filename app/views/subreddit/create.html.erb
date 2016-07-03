@@ -1,10 +1,10 @@
 <h1><%= "#{@subreddit.first.name}" %></h1>
 
 <% @subreddit.each do |reddit| %>
-<% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
-<% reddit.posts.each do |post| %>
-  <% unless post.title == nil || post.content == nil %>
-  <%= render partial: "/shared/posts_vote", locals: { post: post } %>
+    <% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
+  <% reddit.posts.each do |post| %>
+    <% unless post.title == nil || post.content == nil %>
+    <%= render partial: "/shared/posts_vote", locals: { post: post } %>
     <% end %>
   <% end %>
 <% end %>

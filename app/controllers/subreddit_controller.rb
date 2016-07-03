@@ -7,8 +7,8 @@ class SubredditController < ApplicationController
   end
 
   def create
-    if Subreddit.where(name: params[:subreddit][:name].downcase) != []
-      @subreddit = Subreddit.where(name: params[:subreddit][:name].downcase)
+    if Subreddit.where(name: params[:subreddit][:name]) != []
+      @subreddit = Subreddit.where(name: params[:subreddit][:name])
       authorize @subreddit
     else
       flash[:danger] = "That Saiddit does not exist!"

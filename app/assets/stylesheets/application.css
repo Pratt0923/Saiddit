@@ -18,7 +18,7 @@
 
 body {
 
-  background-color: #ffffe6;
+  background-color: #696D7D;
 }
 
 h1 {
@@ -28,7 +28,9 @@ h1 {
 
 .well.sidebar-nav {
   font-family: 'Oswald', sans-serif;
-  background-color: #e6e6ff;
+  background-color: #68B0AB;
+  border: none;
+  color: #FAF3DD;
 }
 .post-title p {
   font-family: 'Roboto Condensed', sans-serif;
@@ -40,22 +42,56 @@ h1 {
 
 .post-comments {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: #f5f2fe;
+  background-color: #C8D5B9;
   margin-bottom: 5px;
   border-radius: 1em;
   text-align: center;
   padding-top: 10px;
-  padding-bottom: 10px;}
+  padding-bottom: 10px;
+  margin-left: 2em;
+}
 
+.navbar-default .navbar-nav>li>a {
+  color: #FAF3DD;
+}
 
 .navbar {
   font-family: 'Oswald', sans-serif;
-  background-color: #e6e6ff;
+  background-color: #68B0AB;
+  border: none;
 }
+
+.addCommentButton {
+  margin-bottom: 5px;
+}
+
+a {
+  color: #FAF3DD;
+}
+
+.destroy a:hover {
+  color: #ff8080;
+  text-decoration: none;
+}
+
+.edit a:hover {
+  color: #80dfff;
+  text-decoration: none;
+}
+
+.col-lg-9 h1 {
+  color: #C8D5B9;
+
+}
+
+.navbar-default .navbar-brand {
+  color: #FAF3DD;
+}
+
 
 .post-title {
   font-family: 'Oswald', sans-serif;
-  background-color: #e6e6ff;
+  background-color: #FAF3DD;
   margin-bottom: 5px;
   border-radius: 1em;
   text-align: center;
@@ -63,9 +99,32 @@ h1 {
   padding-bottom: 10px;
 }
 
+
+.btn-default {
+  background-color: #68B0AB;
+  border: none;
+}
+
+.saiddit-board {
+  color: #C8D5B9
+}
+
+.btn-default:hover {
+  background-color: #FAF3DD;
+}
+
+.form-group label {
+  color: #FAF3DD;
+}
+
+.form-control {
+  background-color: #C8D5B9;
+
+}
+
 .post-content {
   font-family: 'Oswald', sans-serif;
-  background-color: #e6e6ff;
+  background-color: #FAF3DD;
   margin-bottom: 5px;
   border-radius: 1em;
   text-align: center;
@@ -96,6 +155,16 @@ h1 {
   font-family: 'Oswald', sans-serif;
   float: left;
   margin-left: 1em;
+  color: #C8D5B9;
+}
+
+.comments a {
+  color: #8FC0A9;
+}
+
+.comments a:hover {
+  color: #68B0AB;
+  text-decoration: none;
 }
 
 .votes {
@@ -121,6 +190,21 @@ h1 {
   margin-top: 6em;
 }
 
+<<<<<<< HEAD
 footer {
   margin-bottom: 2em;
+=======
+.over {
+  background-color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.voteButtons {
+  float:left;
+  margin-left: -3.5em;
+  margin-top: 1.5em;
+>>>>>>> votes
 }

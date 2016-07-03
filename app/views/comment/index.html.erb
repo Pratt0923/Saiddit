@@ -1,4 +1,7 @@
-<div><%= link_to 'Add a new Comment!', new_post_comment_path %></div>
+<form action='comment/new'>
+    <input type="submit" class="btn-default btn addCommentButton"value="Add a new Comment!">
+</form>
+
 <div class="post-title">
 <div><strong>Title:</strong></div>
 <div><p><%= @post.title %></p></div>
