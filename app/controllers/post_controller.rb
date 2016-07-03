@@ -16,7 +16,7 @@ class PostController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method)
+    @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method.first.id)
     @post.user_id = current_user.id
     @post.posted_by = current_user.email.gsub /@.+/, ''
     authorize @post
@@ -39,7 +39,7 @@ class PostController < ApplicationController
   def update
     @post = Post.find params[:id]
     authorize @post
-    @subreddit = Subreddit.where(name: params[:post][:subreddit])
+    @subreddit = Subreddit.where(name: params[:post][:subreddit].downcase)
     subreddit_update_details
   end
 
@@ -76,11 +76,11 @@ class PostController < ApplicationController
   end
 
   def subreddit_id_method
-    (Subreddit.where(name: params[:post][:subreddit])).first.id
+    Subreddit.where(id: params[:post][:name])
   end
 
   def subreddit_update_details
-    if Subreddit.where(name: params[:post][:subreddit]) == []
+    if Subreddit.where(name: params[:post][:subreddit].downcase) == []
       flash[:danger] = "That is not a valid Saiddit"
       redirect_to :back
     else

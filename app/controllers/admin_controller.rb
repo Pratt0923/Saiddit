@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   end
 
   def create
-    @subreddit = Subreddit.new(name: params[:post][:name])
+    @subreddit = Subreddit.new(name: params[:post][:name].downcase)
     @subreddit.save
   end
 end
