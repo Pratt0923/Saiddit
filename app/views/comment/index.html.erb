@@ -19,14 +19,16 @@
 <button class="btn btn-default reply" type="submit">Reply</button>
 </form>
 <div class="commentsbuttons">
+
 <% if policy(comments).destroy? %>
-<span class="commentdelete"><%= link_to 'destroy', post_comment_path(@post ,comments), method: :delete %></span>
+<div class="destroy commentdelete"><%= link_to 'destroy', post_comment_path(@post ,comments), method: :delete %></div>
 <% end %>
 
 <% if policy(comments).edit? %>
-<span class="commentedit"><%= link_to 'edit', edit_post_comment_path(@post ,comments) %></span>
+<div class="edit commentedit"><%= link_to 'edit', edit_post_comment_path(@post ,comments) %></div>
 <% end %>
 </div>
+
 <div class="comments-posted-by">Posted by: <%= @post.posted_by %></div>
 
 
@@ -39,16 +41,17 @@
       <%= reply.user %>
     </div>
   </div>
-<div>
-  <% if policy(reply).edit? %>
-    <div class="edit"><%= link_to 'edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
+<% if policy(reply).edit? %>
+  <div class="edit"><%= link_to 'edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
   <% end %>
 
   <% if policy(reply).destroy? %>
     <div class="destroy"><%= link_to 'destroy', post_comment_reply_path(@post, comments, reply), method: :delete %></div>
+    <% end %>
   <% end %>
-<% end %>
-</div>
+
+
+
 </div>
 
 
