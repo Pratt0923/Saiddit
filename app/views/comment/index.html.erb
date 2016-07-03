@@ -1,5 +1,5 @@
 <form action='comment/new'>
-    <input type="submit" class="btn-default btn addCommentButton"value="Add a new Comment!">
+    <input type="submit" class="btn-default btn addCommentButton" value="Add a new Comment!">
 </form>
 
 <div class="post-title">
@@ -15,8 +15,23 @@
 <% @post.comments.each do |comments| %>
 <div class="post-comments">
 <div><p><%= comments.comment %></p></div>
+<form action="comment/<%= comments.id %>/reply">
+<button class="btn btn-default reply" type="submit">Reply</button>
+</form>
 <div class="comments-posted-by">Posted by: <%= @post.posted_by %></div>
+</div>
+
+<div class="replies">
+  <% comments.replies.each do |reply| %>
+  <div class="replytext"><%= reply.content %>
+    <div class="replydata">
+      <%= reply.user %>
+    </div>
+  </div>
+
+  <% end %>
 
 </div>
+
 
 <% end %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :post do
-    resources :comment
+    resources :comment do
+      resources :reply
+    end
     put :upvote
     put :downvote
   end

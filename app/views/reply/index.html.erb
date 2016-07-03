@@ -1,0 +1,8 @@
+<h1>reply index</h1>
+
+<div class="post-comments"><%= @comment.comment %></div>
+<%= bootstrap_form_for :reply, url: post_comment_reply_index_path do |f| %>
+<%= f.text_field :content %>
+<%= f.submit %>
+
+<% end %>
