@@ -67,10 +67,6 @@ class PostController < ApplicationController
     @post.get_upvotes.size - @post.get_downvotes.size
   end
 
-  def user_subreddits
-    #TODO: define a users subreddits here for future use.
-  end
-
   def posts_params
     params.require(:post).permit(:title, :content, :subreddit, :posted_by)
   end
