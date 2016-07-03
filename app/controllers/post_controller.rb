@@ -16,7 +16,7 @@ class PostController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(title: params[:post][:title], content: params[:post][:content], subreddit_id: subreddit_id_method.first.id)
+    @post =
     @post.user_id = current_user.id
     @post.posted_by = current_user.email.gsub /@.+/, ''
     authorize @post
@@ -71,6 +71,14 @@ class PostController < ApplicationController
     params.require(:post).permit(:title, :content, :subreddit, :posted_by)
   end
 
+  def new_post
+    current_user.posts.new(
+    title: params[:post][:title],
+    content: params[:post][:content],
+    subreddit_id: subreddit_id_method.first.id
+    )
+  end
+
   def subreddit_id_method
     Subreddit.where(id: params[:post][:name])
   end
@@ -80,7 +88,11 @@ class PostController < ApplicationController
       flash[:danger] = "That is not a valid Saiddit"
       redirect_to :back
     else
-      if @post.update(title: params[:post][:title], content: params[:post][:content], subreddit_id: @subreddit.first.id)
+      if @post.update(
+        title: params[:post][:title],
+        content: params[:post][:content],
+        subreddit_id: @subreddit.first.id
+        )
         flash[:notice] = "Post updated!"
         redirect_to post_index_path
       else
