@@ -40,7 +40,11 @@
     </div>
   </div>
 
+  <div class="edit"><%= link_to 'edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
+    <div class="destroy"><%= link_to 'destroy', post_comment_reply_path(@post, comments, reply), method: :delete %></div>
   <% end %>
+
+
 
 </div>
 
