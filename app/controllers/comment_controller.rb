@@ -14,6 +14,33 @@ class CommentController < ApplicationController
     redirect_to post_comment_index_path
   end
 
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @post = Post.find(params[:post_id])
+    @comment.destroy
+    redirect_to post_comment_index_path
+  end
+
+  def edit
+    @comment = Comment.find_by(id: params[:id])
+    @post = Post.find(params[:post_id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+      if @comment.update(
+        comment: params[:comment][:comment]
+        )
+        flash[:notice] = "Comment updated!"
+        redirect_to post_comment_index_path
+      else
+        render :edit
+      end
+    end
+
+
+
+
   private
   def new_comment_params
     Comment.new(

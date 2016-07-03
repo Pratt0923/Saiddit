@@ -19,6 +19,10 @@
 <button class="btn btn-default reply" type="submit">Reply</button>
 </form>
 <div class="comments-posted-by">Posted by: <%= @post.posted_by %></div>
+
+<div class="destroy"><%= link_to 'destroy', post_comment_path(@post ,comments), method: :delete %></div>
+<div class="edit"><%= link_to 'edit', edit_post_comment_path(@post ,comments) %></div>
+
 </div>
 
 <div class="replies">
