@@ -1,6 +1,5 @@
 class CommentController < ApplicationController
 
-  #TODO what if I want users to comment on others comments!!!!!
   def index
     @post = Post.find(params[:post_id])
     authorize @post
@@ -16,7 +15,7 @@ class CommentController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-    @post = Post.find(params[:post_id])
+    authorize @comment
     @comment.destroy
     redirect_to post_comment_index_path
   end
@@ -24,10 +23,12 @@ class CommentController < ApplicationController
   def edit
     @comment = Comment.find_by(id: params[:id])
     @post = Post.find(params[:post_id])
+    authorize @comment
   end
 
   def update
     @comment = Comment.find(params[:id])
+    authorize @comment
       if @comment.update(
         comment: params[:comment][:comment]
         )

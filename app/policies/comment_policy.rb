@@ -1,9 +1,9 @@
 class CommentPolicy < ApplicationPolicy
-  def initialize(user, post)
+  def initialize(user, comment)
     @user = user
-    @post = post
+    @comment = comment
   end
-#can't I just put all of this into application_policy? 
+
   def index?
     true
   end
@@ -17,11 +17,11 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    (user == post.user) || is_admin? || is_mod?
+    (user.id == @comment.user_id) || is_admin? || is_mod?
   end
 
   def edit?
-    user == post.user || is_admin? || is_mod?
+    user.id == @comment.user_id || is_admin? || is_mod?
   end
 
   def update?
@@ -34,6 +34,10 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def is_mod?
-    user.rank == "mod" && (post.subreddit.name) == user.board_control
+    if user.board_control != "no_board"
+      user.rank == "mod" && Subreddit.where(name: user.board_control).id == @comment.post_id
+    else
+      false
+    end
   end
 end
