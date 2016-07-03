@@ -61,6 +61,10 @@ h1 {
   border: none;
 }
 
+.addCommentButton {
+  margin-bottom: 5px;
+}
+
 a {
   color: #FAF3DD;
 }
@@ -84,6 +88,7 @@ a {
   color: #FAF3DD;
 }
 
+
 .post-title {
   font-family: 'Oswald', sans-serif;
   background-color: #FAF3DD;
@@ -94,9 +99,14 @@ a {
   padding-bottom: 10px;
 }
 
+
 .btn-default {
   background-color: #68B0AB;
   border: none;
+}
+
+.saiddit-board {
+  color: #C8D5B9
 }
 
 .btn-default:hover {
