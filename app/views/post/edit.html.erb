@@ -1,9 +1,15 @@
 <h1>edit post</h1>
 <%= bootstrap_form_for @post do |f| %>
 <%= f.text_area :title %>
-<%= f.text_area :content %>
-<%= f.collection_select(:subreddit, Subreddit.all, :name, :name) %>
 
+<%= f.text_area :content %>
+
+<% Subreddit.all.each do |saiddit| %>
+<label class="radio-inline">
+  <%= f.radio_button :subreddit, "#{saiddit.name}" %> <%= saiddit.name %>
+</label>
+
+<% end %>
 
 <%= f.submit %>
 <% end %>

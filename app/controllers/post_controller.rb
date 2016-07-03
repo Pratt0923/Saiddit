@@ -25,21 +25,22 @@ class PostController < ApplicationController
   end
 
   def destroy
-    find_post
+    @post = Post.find(params[:id])
     authorize @post
     @post.destroy
     redirect_to post_index_path
   end
 
   def edit
-    find_post
+    @post = Post.find(params[:id])
     authorize @post
   end
 
   def update
-    find_post
+    @post = Post.find params[:id]
     authorize @post
-    subreddit_update
+    @subreddit = Subreddit.where(name: params[:post][:subreddit])
+    subreddit_update_details
   end
 
   def upvote
@@ -67,27 +68,23 @@ class PostController < ApplicationController
   end
 
   def user_subreddits
-    #TO`DO: define a users favorite subreddits here for future use.
+    #TODO: define a users subreddits here for future use.
   end
 
   def posts_params
-    params.require(:post).permit(:title, :content, :subreddit_name, :posted_by)
+    params.require(:post).permit(:title, :content, :subreddit, :posted_by)
   end
 
   def subreddit_id_method
     (Subreddit.where(name: params[:post][:subreddit])).first.id
   end
 
-  def find_post
-    @post = Post.find params[:id]
-  end
-
-  def subreddit_update
+  def subreddit_update_details
     if Subreddit.where(name: params[:post][:subreddit]) == []
       flash[:danger] = "That is not a valid Saiddit"
       redirect_to :back
     else
-      if @post.update posts_params
+      if @post.update(title: params[:post][:title], content: params[:post][:content], subreddit_id: @subreddit.first.id)
         flash[:notice] = "Post updated!"
         redirect_to post_index_path
       else

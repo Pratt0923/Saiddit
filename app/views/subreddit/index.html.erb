@@ -4,18 +4,18 @@
 <%= f.submit 'Search the Saiddits!'%>
 <% end %>
 <div class="top-margin">
-  
-<% @subreddit.each do |reddit| %>
-<% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.get_upvotes.size, post.created_at] } %>
-<% reddit.posts.each do |post| %>
 
-  <% unless post.title == nil || post.content == nil %>
-  <%= render partial: "/shared/posts_vote", locals: { post: post } %>
-  <div class="saiddit-board">
-    <%= reddit.name %>
-  </div>
-  <% end %>
-  <% end %>
+<% @subreddit.each do |reddit| %>
+  <% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.get_upvotes.size, post.created_at] } %>
+  <% reddit.posts.each do |post| %>
+
+      <% unless post.title == nil || post.content == nil %>
+      <%= render partial: "/shared/posts_vote", locals: { post: post } %>
+      <div class="saiddit-board">
+        <%= post.subreddit.name %>
+      </div>
+      <% end %>
+    <% end %>
   <% end %>
 
 </div>
