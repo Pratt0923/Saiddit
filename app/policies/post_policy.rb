@@ -24,7 +24,6 @@ class PostPolicy < ApplicationPolicy
 
   def edit?
     user == post.user || is_admin? || is_mod?
-    # i just want to say how happy I am that this is working right now :)
   end
 
   def update?
