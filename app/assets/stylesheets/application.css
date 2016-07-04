@@ -20,7 +20,6 @@
   color: #C8D5B9;
   font-family: 'Oswald', sans-serif;
   margin-top: 0.7em;
-
 }
 
 .commentsbuttons {
@@ -32,6 +31,39 @@
 
 .commentsbuttons a {
   color: #C8D5B9;
+}
+
+.replyedit {
+  font-family: 'Oswald', sans-serif;
+  float: right;
+  margin-right: 1em;
+  margin-top: -0.4em;
+}
+.replydestroy {
+  font-family: 'Oswald', sans-serif;
+  float: right;
+  margin-right: 1em;
+  margin-top: -0.4em;
+}
+
+.replydestroy a:hover {
+  color: #ff8080;
+  text-decoration: none;
+}
+
+.replyedit a:hover {
+  color: #80dfff;
+  text-decoration: none;
+}
+
+.replyedit a{
+  color: #8FC0A9;
+}
+
+.replydestroy a {
+  margin-right: 1em;
+  margin-top: -1em;
+  color: #8FC0A9;
 }
 
 .commentdelete a:hover {
@@ -60,7 +92,6 @@
 .replydata {
   float:left;
   margin-left: 1em;
-  margin-top: -4px;
 }
 
 body {
@@ -95,6 +126,7 @@ h1 {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 2em;
+  margin-top: 1.3em;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -223,6 +255,8 @@ a {
   float:right;
   margin-top: -2.5em;
   margin-right: 0.5em;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 1em;
 }
 
 
