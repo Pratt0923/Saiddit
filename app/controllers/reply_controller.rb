@@ -24,6 +24,11 @@ class ReplyController < ApplicationController
   def update
     @reply = Reply.find params[:id]
     authorize @reply
+    update_reply
+  end
+
+  private
+  def update_reply
     if @reply.update(
       content: params[:reply][:content]
       )
