@@ -16,9 +16,7 @@ class PostController < ApplicationController
   end
 
   def create
-    @post =
-    @post.user_id = current_user.id
-    @post.posted_by = current_user.email.gsub /@.+/, ''
+    new_post
     authorize @post
     @post.save!
     redirect_to post_index_path
@@ -67,16 +65,15 @@ class PostController < ApplicationController
     @post.get_upvotes.size - @post.get_downvotes.size
   end
 
-  def posts_params
-    params.require(:post).permit(:title, :content, :subreddit, :posted_by)
-  end
-
   def new_post
-    current_user.posts.new(
+    @subreddit = Subreddit.where(name: params[:post][:subreddit].downcase)
+    @post = Post.new(
     title: params[:post][:title],
     content: params[:post][:content],
-    subreddit_id: subreddit_id_method.first.id
+    subreddit: @subreddit.first
     )
+    @post.user_id = current_user.id
+    @post.posted_by = current_user.email.gsub /@.+/, ''
   end
 
   def subreddit_id_method
