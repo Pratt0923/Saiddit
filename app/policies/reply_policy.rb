@@ -17,11 +17,11 @@ class ReplyPolicy < ApplicationPolicy
   end
 
   def destroy?
-    (user == post.user) || is_admin? || is_mod?
+    (user.id == post.comment.user_id) || is_admin? || is_mod?
   end
 
   def edit?
-    user == post.user || is_admin? || is_mod?
+    (user.id == post.comment.user_id) || is_admin? || is_mod?
   end
 
   def update?
