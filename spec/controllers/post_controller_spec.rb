@@ -3,7 +3,8 @@ require 'rails_helper'
 describe PostController do
 
   it 'should allow users to create posts' do
-
+    post :create, :post => {:title => "title", :content => "content", :subreddit => (Subreddit.where(name: "new"))}
+    binding.pry
   end
 
   it 'should allow users to delete posts' do

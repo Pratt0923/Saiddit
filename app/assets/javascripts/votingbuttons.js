@@ -8,14 +8,20 @@ $(document).ready(function() {
     upButton.addClass("orange")
     $(".voteButtons").find(".buttonDown").removeClass("orange")
 
-    $.ajax("/post/" + findPostId + "/upvote.json", {
-      method: "PUT",
-      success: function(data) {
-        console.log(data.message)
-      },
-      error: function() { alert("Something went wrong!") }
-    });
-  });
+
+    $(".upvote").click(function() {
+
+      var buttonThatWasClicked = $(this)
+
+      $.ajax("/post/" + findPostId + "/upvote.json", {
+        method: "PUT",
+        success: function(data) {
+          buttonThatWasClicked.parent().find(".total-votes-size").text(data.message)
+        },
+         error: function() { alert("Something went wrong!") }
+       });
+     });
+   })
 
 
 
@@ -31,9 +37,9 @@ $(document).ready(function() {
     $.ajax("/post/" + findPostId + "/downvote.json", {
       method: "PUT",
       success: function(data) {
-        console.log(data.message)
-     },
-      error: function() { alert("Something went wrong!") }
-    });
-  });
-})
+        buttonThatWasClicked.parent().find(".total-votes-size").text(data.message)
+      },
+       error: function() { alert("Something went wrong!") }
+     });
+   });
+ })
