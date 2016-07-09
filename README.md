@@ -1,6 +1,6 @@
 ##Saiddit is your one stop shop for everything on the internet! Want to share a funny link? Just post to 'funny' to share your link!
 
-On Saiddit you can:
+###On Saiddit you can:
   * Create new posts
   * Order your posts by any Saiddit that you wish!
   * Edit posts that belong to you
@@ -17,7 +17,7 @@ On Saiddit you can:
   All posts on the front page of Saiddit are sorted by the value of their votes, and by the time that they were created.
 
 ## To get started
-### To do anything on Saiddit, you have to log in. Please input an email address that is valid, as before accessing Saiddit you must confirm your email address. Saiddit will send out a email within 2-5 minutes so please be paitent.
+ To do anything on Saiddit, you have to log in. Please input an email address that is valid, as before accessing Saiddit you must confirm your email address. Saiddit will send out a email within 2-5 minutes so please be paitent.
 
 ### The Navigation Bar
 In the Navigation Bar, users can visit my GitHub as well as my LinkedIn. In addition, there are links for users to view their own posts, as well as to make a new post.
