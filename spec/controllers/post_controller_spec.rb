@@ -31,4 +31,16 @@ describe PostController do
     post :destroy, {:id => 1}
     expect(Post.count).to eq(0)
   end
+
+  it 'should allow users to edit posts through controller' do
+    user = create :user
+    sign_in user
+    create :subreddit
+    post :create, {
+    :post => {
+      :subreddit => "new",
+      :title => "title",
+      :content => "content"
+    }}
+  end
 end
