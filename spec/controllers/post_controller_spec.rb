@@ -42,5 +42,15 @@ describe PostController do
       :title => "title",
       :content => "content"
     }}
+    get :edit, {:id => 1}
+    post :update, {
+      :id => 1,
+      :post => {
+        :subreddit => "new",
+        :title => "newtitle",
+        :content => "newcontent"
+      }}
+      expect(Post.first.title).to eq("newtitle")
+      expect(Post.first.content).to eq("newcontent")
   end
 end
