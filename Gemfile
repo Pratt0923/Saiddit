@@ -22,6 +22,7 @@ gem 'omniauth-slack'
 gem 'httparty'
 gem 'pundit'
 gem 'twilio-ruby'
+gem 'simplecov'
 
 
 group :development, :test do
@@ -31,6 +32,9 @@ group :development, :test do
   gem 'factory_girl_rspec'
   gem 'pry-rails'
   gem 'sqlite3'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
 
 end
 

@@ -2,32 +2,22 @@ require 'rails_helper'
 
 describe PostController do
 
-  it 'should allow users to create posts' do
-    post :create, :post => {:title => "title", :content => "content", :subreddit => (Subreddit.where(name: "new"))}
-    binding.pry
+  it 'should allow posts to be created' do
+    user = create :user
+    sign_in user
+    create :subreddit
+    post :create, {
+      :post => {
+        :subreddit => "new",
+        :title => "title",
+        :content => "content"
+      }}
+      get :index
+      get :new
+      expect(Post.count).to eq(1)
+      expect(Post.first.title).to eq("title")
   end
 
-  it 'should allow users to delete posts' do
 
-  end
-
-  it 'should allow users to edit posts' do
-  end
-
-  it 'should not allow any general user who does not own a post to delete other users posts' do
-
-  end
-
-  it 'should allow admins to edit any post' do
-  end
-
-  it 'should allow admins to delete any post' do
-  end
-
-  it 'should only allow mods to edit posts that they belong to' do
-  end
-
-  it 'should only allow mods to delete posts that they belong to' do
-  end
 
 end
