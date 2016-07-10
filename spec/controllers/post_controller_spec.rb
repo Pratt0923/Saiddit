@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe PostController do
+  setup do
+  @request.env['HTTP_REFERER'] = 'http://localhost:3000/post'
+end
 
   it 'should allow posts to be created' do
     user = create :user
@@ -52,5 +55,35 @@ describe PostController do
       }}
       expect(Post.first.title).to eq("newtitle")
       expect(Post.first.content).to eq("newcontent")
+  end
+
+  it 'should allow users to upvote posts' do
+    user = create :user
+    sign_in user
+    create :subreddit
+    post :create, {
+    :post => {
+      :subreddit => "new",
+      :title => "title",
+      :content => "content"
+    }}
+    post :upvote, {:post_id => 1}
+    expect(Post.first.get_upvotes.size).to eq(1)
+    expect(Post.first.get_downvotes.size).to eq(0)
+  end
+
+  it 'should allow users to downvotes posts' do
+    user = create :user
+    sign_in user
+    create :subreddit
+    post :create, {
+    :post => {
+      :subreddit => "new",
+      :title => "title",
+      :content => "content"
+    }}
+    post :downvote, {:post_id => 1}
+    expect(Post.first.get_upvotes.size).to eq(0)
+    expect(Post.first.get_downvotes.size).to eq(1)
   end
 end
