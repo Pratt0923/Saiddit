@@ -4,18 +4,6 @@ class ReplyPolicy < ApplicationPolicy
     @post = post
   end
 
-  def index?
-    true
-  end
-
-  def new?
-    true
-  end
-
-  def create?
-    new?
-  end
-
   def destroy?
     (user.id == post.comment.user_id) || is_admin? || is_mod?
   end
