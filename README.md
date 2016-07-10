@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/Pratt0923/Saiddit/badges/gpa.svg)](https://codeclimate.com/github/Pratt0923/Saiddit)[![Test Coverage](https://codeclimate.com/github/Pratt0923/Saiddit/badges/coverage.svg)](https://codeclimate.com/github/Pratt0923/Saiddit/coverage)
+[![Code Climate](https://codeclimate.com/github/Pratt0923/Saiddit/badges/gpa.svg)](https://codeclimate.com/github/Pratt0923/Saiddit) [![Test Coverage](https://codeclimate.com/github/Pratt0923/Saiddit/badges/coverage.svg)](https://codeclimate.com/github/Pratt0923/Saiddit/coverage)
 
 ##Saiddit is your one stop shop for everything on the internet! Want to share a funny link? Just post to 'funny' to share your link!
 
