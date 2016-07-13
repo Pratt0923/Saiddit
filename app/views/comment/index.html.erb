@@ -12,7 +12,7 @@
 </div>
 
 
-<% @post.comments.each do |comments| %>
+<% @post.comments.includes(:replies).each do |comments| %>
 <div class="post-comments">
 <div><p><%= comments.comment %></p></div>
 <form action="comment/<%= comments.id %>/reply">

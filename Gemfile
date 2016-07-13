@@ -36,6 +36,8 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem "codeclimate-test-reporter", require: nil
+  gem 'faker'
+
 end
 
 group :development do
