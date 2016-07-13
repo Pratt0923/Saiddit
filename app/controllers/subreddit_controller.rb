@@ -2,7 +2,7 @@ class SubredditController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @subreddit = Subreddit.all
+    @subreddit = Subreddit.all.includes(:posts => [:user])
     authorize @subreddit
   end
 
