@@ -3,6 +3,7 @@ class SubredditController < ApplicationController
 
   def index
     @subreddit = Subreddit.all.includes(:posts => [:user])
+    
     authorize @subreddit
   end
 
