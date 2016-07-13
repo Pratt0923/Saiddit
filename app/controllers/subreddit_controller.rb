@@ -12,7 +12,6 @@ class SubredditController < ApplicationController
       authorize @subreddit
     else
       flash[:danger] = "That Saiddit does not exist!"
-      #do something other then this. I just wanted to make sure it works :P
       redirect_to subreddit_index_path
     end
   end
