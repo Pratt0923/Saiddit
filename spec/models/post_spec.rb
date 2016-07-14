@@ -9,4 +9,9 @@ describe Post, type: :model do
     )
     expect(post).to be_valid
   end
+
+  it 'should not be valid' do
+    post = Post.new()
+    expect(post).to be_invalid
+  end
 end

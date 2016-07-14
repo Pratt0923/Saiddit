@@ -1,7 +1,13 @@
 require 'rails_helper'
 
-class SubredditTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe Subreddit, :type => :model do
+  it 'should be valid' do
+    subreddit = Subreddit.new(name: "new")
+    expect(subreddit).to be_valid
+  end
+
+  it 'shoudl be invalid' do
+    subreddit = Subreddit.new()
+    expect(subreddit).to be_invalid
+  end
 end
