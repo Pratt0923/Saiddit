@@ -6,10 +6,14 @@ class CommentController < ApplicationController
   end
 
   def create
-    @comment = new_comment_params
+    @comment = Comment.new new_comment_params
     @comment.posted_by = current_user.email.gsub /@.+/, ''
     authorize @comment
-    @comment.save
+    if @comment.save
+      flash[:success] = "Comment Added!"
+    else
+      flash[:danger] = "Something went wrong!"
+    end
     redirect_to post_comment_index_path
   end
 
@@ -29,22 +33,19 @@ class CommentController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     authorize @comment
-      if @comment.update(
-        comment: params[:comment][:comment]
-        )
+      if @comment.update(comment: params[:comment][:comment])
         flash[:notice] = "Comment updated!"
+      else
+        flash[:danger] = "Something went wrong!"
         redirect_to post_comment_index_path
       else
         render :edit
       end
     end
 
-
-
-
   private
   def new_comment_params
-    Comment.new(
+    (
     comment: params[:comment][:comment],
     user_id: current_user.id,
     post_id: params[:post_id]

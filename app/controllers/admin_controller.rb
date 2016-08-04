@@ -3,7 +3,11 @@ class AdminController < ApplicationController
   end
 
   def create
-    @subreddit = Subreddit.new(name: params[:post][:name].downcase)
-    @subreddit.save
+    if current_user.rank == "admin"
+      @subreddit = Subreddit.new(name: params[:post][:name].downcase)
+      @subreddit.save
+      flash[:success] = "Saiddit Added!"
+      redirect_to action: "index"
+    end
   end
 end
