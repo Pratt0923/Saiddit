@@ -6,7 +6,6 @@ class ReplyController < ApplicationController
   def create
     @comment = Comment.find(params[:comment_id])
     @reply = @comment.replies.new(comment_id: @comment.id, content: params[:reply][:content], user: (current_user.email.gsub /@.+/, ''))
-    # @reply = Reply.new(content: params[:reply][:content], comment_id: @comment.id)
     @reply.user = current_user.email.gsub /@.+/, ''
     if @reply.save
       flash[:success] = "Saved!"
