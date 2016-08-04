@@ -7,7 +7,7 @@ class SubredditController < ApplicationController
   end
 
   def create
-    if Subreddit.where(name: params[:subreddit][:name].downcase) != []
+    if Subreddit.where(name: params[:subreddit][:name].downcase).exists?
       @subreddit = Subreddit.where(name: params[:subreddit][:name].downcase).includes(:posts => [:user])
       authorize @subreddit
     else

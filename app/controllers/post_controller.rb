@@ -36,7 +36,7 @@ class PostController < ApplicationController
   def update
     @post = Post.find params[:id]
     authorize @post
-    @subreddit = Subreddit.where(name: params[:post][:subreddit].downcase)
+    @subreddit = Subreddit.find_by(name: params[:post][:subreddit].downcase)
     subreddit_update_details
   end
 
@@ -67,16 +67,12 @@ class PostController < ApplicationController
   def new_post
     @subreddit = Subreddit.where(name: params[:post][:subreddit].downcase)
     @post = Post.new(
-    title: params[:post][:title],
-    content: params[:post][:content],
-    subreddit: @subreddit.first
-    )
+      title: params[:post][:title],
+      content: params[:post][:content],
+      subreddit: @subreddit.first
+      )
     @post.user_id = current_user.id
     @post.posted_by = current_user.email.gsub /@.+/, ''
-  end
-
-  def subreddit_id_method
-    Subreddit.where(id: params[:post][:name])
   end
 
   def subreddit_update_details
@@ -85,10 +81,10 @@ class PostController < ApplicationController
       redirect_to :back
     else
       if @post.update(
-        title: params[:post][:title],
-        content: params[:post][:content],
-        subreddit_id: @subreddit.first.id
-        )
+          title: params[:post][:title],
+          content: params[:post][:content],
+          subreddit_id: @subreddit.id
+          )
         flash[:notice] = "Post updated!"
         redirect_to post_index_path
       else

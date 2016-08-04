@@ -5,11 +5,11 @@ class ReplyPolicy < ApplicationPolicy
   end
 
   def destroy?
-    (user.id == post.comment.user_id) || is_admin? || is_mod?
+    user.id == post.comment.user_id || is_admin? || is_mod?
   end
 
   def edit?
-    (user.id == post.comment.user_id) || is_admin? || is_mod?
+    user.id == post.comment.user_id || is_admin? || is_mod?
   end
 
   def update?
