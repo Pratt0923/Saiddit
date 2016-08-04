@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :post do
-    resources :comment, except: [:new] do
+    resources :comment do
       resources :reply, except: [:new]
     end
     put :upvote
