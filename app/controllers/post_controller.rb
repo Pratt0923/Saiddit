@@ -59,7 +59,6 @@ class PostController < ApplicationController
   end
 
   private
-
   def score
     @post.get_upvotes.size - @post.get_downvotes.size
   end

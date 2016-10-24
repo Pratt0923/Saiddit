@@ -1,5 +1,7 @@
 <h1><%= "#{@subreddit.first.name}" %></h1>
-
+<form>
+<button type="submit" name="button" class="btn">Save!</button>
+</form>
 <% @subreddit.each do |reddit| %>
     <% reddit.posts.sort_by { |post| [post.get_downvotes.size, post.created_at] } %>
   <% reddit.posts.each do |post| %>
