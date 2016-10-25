@@ -9,8 +9,7 @@ end
     user = create :user
     sign_in user
     create :subreddit
-    post :create, {
-      :post => {
+    post :create, params: {:post => {
         :subreddit => "new",
         :title => "title",
         :content => "content"
@@ -25,13 +24,12 @@ end
     user = create :user
     sign_in user
     create :subreddit
-    post :create, {
-    :post => {
+    post :create, params: {:post => {
       :subreddit => "new",
       :title => "title",
       :content => "content"
     }}
-    post :destroy, {:id => 1}
+    post :destroy, :id => 1
     expect(Post.count).to eq(0)
   end
 
@@ -39,16 +37,13 @@ end
     user = create :user
     sign_in user
     create :subreddit
-    post :create, {
-    :post => {
+    post :create, params:{:post => {
       :subreddit => "new",
       :title => "title",
       :content => "content"
     }}
-    get :edit, {:id => 1}
-    post :update, {
-      :id => 1,
-      :post => {
+    get :edit, params:{:id => 1}
+    post :update, params:{:id => 1, :post => {
         :subreddit => "new",
         :title => "newtitle",
         :content => "newcontent"
@@ -61,13 +56,12 @@ end
     user = create :user
     sign_in user
     create :subreddit
-    post :create, {
-    :post => {
+    post :create, params:{:post => {
       :subreddit => "new",
       :title => "title",
       :content => "content"
     }}
-    post :upvote, {:post_id => 1}
+    post :upvote, params:{:post_id => 1}
     expect(Post.first.get_upvotes.size).to eq(1)
     expect(Post.first.get_downvotes.size).to eq(0)
   end
@@ -76,13 +70,12 @@ end
     user = create :user
     sign_in user
     create :subreddit
-    post :create, {
-    :post => {
+    post :create, params:{:post => {
       :subreddit => "new",
       :title => "title",
       :content => "content"
     }}
-    post :downvote, {:post_id => 1}
+    post :downvote, params:{:post_id => 1}
     expect(Post.first.get_upvotes.size).to eq(0)
     expect(Post.first.get_downvotes.size).to eq(1)
   end
